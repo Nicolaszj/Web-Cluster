@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TWS - Caso 4: Multiples archivos ~1MB total</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        nav  { background: #333; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin-right: 15px; }
+        table { border-collapse: collapse; width: 100%; }
+        td, th { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #333; color: white; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/caso1/index.html">Caso 1</a>
+        <a href="/caso2/index.html">Caso 2</a>
+        <a href="/caso3/index.html">Caso 3</a>
+        <a href="/caso4/index.html">Inicio</a>
+    </nav>
+
+    <h1>Caso de Prueba 4</h1>
+    <p>Esta pagina enlaza a <strong>multiples archivos</strong> que en total suman
+       aproximadamente 1 MB. Cada archivo se sirve con su Content-Type correcto.</p>
+
+    <table>
+        <tr>
+            <th>Archivo</th>
+            <th>Tamanio aprox.</th>
+            <th>Tipo</th>
+        </tr>
+        <tr>
+            <td><a href="/files/parte1.bin">parte1.bin</a></td>
+            <td>256 KB</td>
+            <td>application/octet-stream</td>
+        </tr>
+        <tr>
+            <td><a href="/files/parte2.bin">parte2.bin</a></td>
+            <td>256 KB</td>
+            <td>application/octet-stream</td>
+        </tr>
+        <tr>
+            <td><a href="/files/parte3.bin">parte3.bin</a></td>
+            <td>256 KB</td>
+            <td>application/octet-stream</td>
+        </tr>
+        <tr>
+            <td><a href="/files/parte4.bin">parte4.bin</a></td>
+            <td>256 KB</td>
+            <td>application/octet-stream</td>
+        </tr>
+    </table>
+
+    <p>
+        <small>Genera los archivos con:<br>
+        <code>for i in 1 2 3 4; do dd if=/dev/urandom of=parte$i.bin bs=1024 count=256; done</code>
+        </small>
+    </p>
+
+    <footer>
+        <hr>
+        <small>TWS - Telematics Web Server | Proyecto Telemática</small>
+    </footer>
+</body>
+</html>

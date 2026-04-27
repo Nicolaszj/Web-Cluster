@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TWS - Caso 3: Archivo grande ~1MB</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        nav  { background: #333; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin-right: 15px; }
+        .info { background: #f0f0f0; padding: 15px; border-left: 4px solid #333; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/caso1/index.html">Caso 1</a>
+        <a href="/caso2/index.html">Caso 2</a>
+        <a href="/caso3/index.html">Inicio</a>
+        <a href="/caso4/index.html">Caso 4</a>
+    </nav>
+
+    <h1>Caso de Prueba 3</h1>
+    <p>Esta pagina enlaza a un archivo de aproximadamente <strong>1 MB</strong>.</p>
+
+    <div class="info">
+        <p>Este caso verifica que el servidor puede transferir archivos grandes
+           correctamente usando el bucle de lectura por chunks (bloques de 8KB).</p>
+        <p>Sin el bucle de envio, la transferencia se truncaria silenciosamente
+           cuando el buffer del socket del kernel se llenara.</p>
+    </div>
+
+    <h2>Descarga de prueba</h2>
+    <p>
+        <a href="/files/archivo_1mb.bin">Descargar archivo_1mb.bin (~1 MB)</a>
+    </p>
+    <p>
+        <small>Genera este archivo en Linux con: <code>dd if=/dev/urandom of=archivo_1mb.bin bs=1024 count=1024</code></small>
+    </p>
+
+    <footer>
+        <hr>
+        <small>TWS - Telematics Web Server | Proyecto Telemática</small>
+    </footer>
+</body>
+</html>

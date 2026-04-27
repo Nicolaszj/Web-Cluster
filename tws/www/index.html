@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TWS - Inicio</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .casos { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .caso  { border: 1px solid #ccc; padding: 15px; border-radius: 4px; }
+        .caso h3 { margin-top: 0; }
+        .caso a { display: inline-block; margin-top: 10px; background: #333;
+                  color: white; padding: 6px 12px; text-decoration: none; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Telematics Web Server (TWS)</h1>
+    <p>Servidor HTTP/1.1 implementado en C con POSIX Sockets y pthreads.</p>
+    <p>Proyecto Telematica - 2026</p>
+
+    <div class="casos">
+        <div class="caso">
+            <h3>Caso 1</h3>
+            <p>Pagina con hipertextos y una imagen.</p>
+            <a href="/caso1/index.html">Abrir</a>
+        </div>
+        <div class="caso">
+            <h3>Caso 2</h3>
+            <p>Pagina con multiples imagenes.</p>
+            <a href="/caso2/index.html">Abrir</a>
+        </div>
+        <div class="caso">
+            <h3>Caso 3</h3>
+            <p>Pagina con un archivo de ~1 MB.</p>
+            <a href="/caso3/index.html">Abrir</a>
+        </div>
+        <div class="caso">
+            <h3>Caso 4</h3>
+            <p>Multiples archivos con ~1 MB total.</p>
+            <a href="/caso4/index.html">Abrir</a>
+        </div>
+    </div>
+
+    <footer>
+        <hr>
+        <small>TWS v1.0 | Implementado con API POSIX Sockets | HTTP/1.1</small>
+    </footer>
+</body>
+</html>
