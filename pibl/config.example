@@ -1,0 +1,71 @@
+# ============================================================
+# config.example — Archivo de configuración del Proxy PIBL
+# Proyecto: PIBL-WS
+#
+# INSTRUCCIONES:
+#   1. Copia este archivo: cp config.example config.txt
+#   2. Reemplaza las IPs privadas de los EC2 backend
+#   3. Ejecuta: ./pibl config.txt
+#
+# FORMATO:
+#   - Una directiva por línea: clave=valor
+#   - Las líneas que comienzan con '#' son comentarios
+#   - Las líneas vacías se ignoran
+#   - Los espacios alrededor del '=' se eliminan automáticamente
+# ============================================================
+
+
+# ------------------------------------------------------------
+# port (OBLIGATORIO)
+# Puerto TCP en el que el proxy PIBL escucha peticiones.
+# Rango válido: 1–65535
+# En AWS, el Security Group del proxy debe abrir este puerto
+# hacia internet (0.0.0.0/0).
+# Valor recomendado para producción: 80
+# Valor recomendado para desarrollo: 8080
+# ------------------------------------------------------------
+port=8080
+
+
+# ------------------------------------------------------------
+# ttl (opcional, default: 60)
+# Tiempo de vida del caché en segundos.
+# Pasado este tiempo, el recurso se considera expirado y el
+# proxy vuelve a consultar al backend (CACHE MISS forzado).
+#
+# Recomendaciones:
+#   ttl=10    Para pruebas de expiración rápida
+#   ttl=60    Para demostraciones (1 minuto)
+#   ttl=300   Para uso en producción (5 minutos)
+# ------------------------------------------------------------
+ttl=60
+
+
+# ------------------------------------------------------------
+# backend (OBLIGATORIO, al menos uno)
+# Dirección IP privada y puerto de cada servidor TWS.
+# Formato: backend=IP:PUERTO
+# Se permiten hasta 16 backends. Las peticiones se distribuyen
+# en Round Robin secuencial: WS1 → WS2 → WS3 → WS1 → ...
+#
+# IMPORTANTE: usa las IPs *privadas* de los EC2 en AWS
+# (las que aparecen en la consola de EC2 como "Private IPv4").
+# El Security Group de los TWS debe permitir tráfico entrante
+# solo desde la IP privada del proxy.
+#
+# Reemplaza las IPs de ejemplo con las de tu despliegue:
+# ------------------------------------------------------------
+backend=172.31.10.101:9090
+backend=172.31.10.102:9090
+backend=172.31.10.103:9090
+
+
+# ============================================================
+# Ejemplo para desarrollo local (todos en la misma máquina):
+#
+# port=8080
+# ttl=10
+# backend=127.0.0.1:9091
+# backend=127.0.0.1:9092
+# backend=127.0.0.1:9093
+# ============================================================
