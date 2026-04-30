@@ -3,8 +3,6 @@
 
 /*
  * config.h — Módulo de configuración del Proxy PIBL
- * Proyecto: PIBL-WS  |  Rol 3: @NavarroAbraham
- * Rama: feature/aws-cache
  *
  * Lee el archivo de configuración y expone la struct Config
  * con todos los parámetros del sistema.
