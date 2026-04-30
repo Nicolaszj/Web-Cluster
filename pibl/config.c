@@ -1,9 +1,5 @@
 /*
  * config.c — Parser del archivo de configuración del Proxy PIBL
- * Proyecto: PIBL-WS  |  Rol 3: @NavarroAbraham
- * Rama: feature/aws-cache
- *
- * Solo usa: stdio.h, stdlib.h, string.h  (100% POSIX / stdlib estándar)
  *
  * Formato reconocido:
  *   # Comentario (línea ignorada)
