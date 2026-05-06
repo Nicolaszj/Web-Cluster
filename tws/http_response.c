@@ -201,8 +201,10 @@ static void manejar_get_head(int sockfd, const PeticionHttp *p,
      * los mismos que usan los sockets. Mas eficiente para transferencia. */
     int fd = open(ruta, O_RDONLY);
     if (fd < 0) {
-        /* El stat() paso pero el open() fallo: puede ser un problema de permisos */
+        /* El stat() paso pero el open() fallo: puede ser un problema de permisos.
+         * Se envia 500 al cliente para que no quede esperando sin respuesta. */
         log_error("No se pudo abrir %s", ruta);
+        enviar_error(sockfd, 500, "Internal Server Error");
         log_request(client_ip, "GET", p->uri, 500);
         return;
     }
