@@ -698,9 +698,9 @@ Browser renderiza correctamente HTML e imágenes en los 4 casos de prueba. Heade
 
 ---
 
-### [HU-E4-01] Esqueleto del Proxy PIBL (módulos base + compilación)
+### [HU-E4-01] Esqueleto del Proxy PIBL (módulos base + compilación) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -728,9 +728,9 @@ Proyecto compila limpio. Estructura lista para desarrollo incremental.
 
 ---
 
-### [HU-E4-02] Archivo de configuración PIBL: puerto + lista de backends
+### [HU-E4-02] Archivo de configuración PIBL: puerto + lista de backends ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -760,9 +760,9 @@ El proxy carga la configuración correctamente. `config.example` documentado en 
 
 ---
 
-### [HU-E4-03] Socket servidor PIBL: escucha en 80/8080 + aceptación concurrente
+### [HU-E4-03] Socket servidor PIBL: escucha en 80/8080 + aceptación concurrente ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -791,9 +791,9 @@ Proxy acepta 10+ conexiones simultáneas verificado con prueba básica.
 
 ---
 
-### [HU-E4-04] Round Robin thread-safe (sin saltos bajo concurrencia)
+### [HU-E4-04] Round Robin thread-safe (sin saltos bajo concurrencia) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -821,9 +821,9 @@ Los logs muestran distribución RR 1/3/1/3/1/3... bajo concurrencia. Sin saltos 
 
 ---
 
-### [HU-E4-05] Interceptación y reenvío de request intacta al backend
+### [HU-E4-05] Interceptación y reenvío de request intacta al backend ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -851,9 +851,9 @@ Los logs muestran distribución RR 1/3/1/3/1/3... bajo concurrencia. Sin saltos 
 
 ---
 
-### [HU-E4-06] Conexión socket cliente a backend + fallback si backend cae
+### [HU-E4-06] Conexión socket cliente a backend + fallback si backend cae ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Alta`  
@@ -882,9 +882,9 @@ Apagando un EC2 backend, el proxy redirige automáticamente al siguiente. Eviden
 
 ---
 
-### [HU-E4-07] Relay de respuesta backend → cliente (sin modificar)
+### [HU-E4-07] Relay de respuesta backend → cliente (sin modificar) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -913,9 +913,9 @@ Prueba E2E: cliente → proxy → backend → proxy → cliente funcionando para
 
 ---
 
-### [HU-E4-08] Logger del Proxy: consola + archivo, request + response
+### [HU-E4-08] Logger del Proxy: consola + archivo, request + response ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Alta`  
@@ -944,9 +944,9 @@ Log consistente del proxy durante pruebas de estrés. Sin entradas mezcladas.
 
 ---
 
-### [HU-E4-09] Timeout en conexión socket cliente → backend
+### [HU-E4-09] Timeout en conexión socket cliente → backend ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -979,9 +979,9 @@ Con un backend apagado, el proxy redirige al siguiente en ≤ 5 segundos. Log re
 
 ---
 
-### [HU-E4-10] Prueba de estrés del Proxy: evidencia de Round Robin bajo concurrencia
+### [HU-E4-10] Prueba de estrés del Proxy: evidencia de Round Robin bajo concurrencia ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Alta`  
@@ -1017,10 +1017,10 @@ Sección "Casos de Prueba" del README incluye evidencia de Round Robin bajo carg
 
 ---
 
-### [HU-E5-00] Módulo de lookup de caché en el flujo del Proxy (decisión HIT/MISS)
+### [HU-E5-00] Módulo de lookup de caché en el flujo del Proxy (decisión HIT/MISS) ✅
 
-**Estado:** ⬜ Pendiente  
-**Responsable:** @NavarroAbraham  
+**Estado:** ✅ Completada  
+**Responsable:** @NavarroAbraham (Integrado por @Elpaipsz)  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
 **Dependencias:** HU-E4-05, HU-E5-01, HU-E5-02  
@@ -1053,10 +1053,10 @@ Log muestra `[CACHE HIT]` en petición repetida dentro del TTL y `[CACHE MISS]` 
 
 ---
 
-### [HU-E5-01] Caché persistente en disco: almacenar respuestas y servir HIT
+### [HU-E5-01] Caché persistente en disco: almacenar respuestas y servir HIT ✅
 
-**Estado:** ⬜ Pendiente  
-**Responsable:** @NavarroAbraham  
+**Estado:** ✅ Completada  
+**Responsable:** @NavarroAbraham (Integrado por @Elpaipsz)  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
 **Dependencias:** HU-E4-07  
@@ -1085,10 +1085,10 @@ HIT/MISS demostrable. Caché persiste tras reinicio del PIBL. Verificado con log
 
 ---
 
-### [HU-E5-02] TTL configurable por parámetro (expirar y renovar caché)
+### [HU-E5-02] TTL configurable por parámetro (expirar y renovar caché) ✅
 
-**Estado:** ⬜ Pendiente  
-**Responsable:** @NavarroAbraham  
+**Estado:** ✅ Completada  
+**Responsable:** @NavarroAbraham (Integrado por @Elpaipsz)  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
 **Dependencias:** HU-E5-01  
