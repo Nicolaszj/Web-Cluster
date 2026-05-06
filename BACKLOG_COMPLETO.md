@@ -698,9 +698,9 @@ Browser renderiza correctamente HTML e imágenes en los 4 casos de prueba. Heade
 
 ---
 
-### [HU-E4-01] Esqueleto del Proxy PIBL (módulos base + compilación)
+### [HU-E4-01] Esqueleto del Proxy PIBL (módulos base + compilación) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -713,24 +713,24 @@ Browser renderiza correctamente HTML e imágenes en los 4 casos de prueba. Heade
 **para** construir el intermediario de forma escalable y modular.
 
 #### Criterios de Aceptación
-- [ ] El proyecto compila en Linux (local y EC2) sin errores ni warnings
-- [ ] Estructura modular con archivos separados por responsabilidad
-- [ ] El binario arranca y muestra un mensaje de inicio
+- [x] El proyecto compila en Linux (local y EC2) sin errores ni warnings
+- [x] Estructura modular con archivos separados por responsabilidad
+- [x] El binario arranca y muestra un mensaje de inicio
 
 #### Tareas
-- [ ] Crear estructura de directorios para el PIBL (`pibl/`)
-- [ ] Crear `main.c` con punto de entrada
-- [ ] Crear módulos vacíos: `config.c`, `round_robin.c`, `logger.c`, `cache.c`
-- [ ] Crear `Makefile` equivalente al del TWS
+- [x] Crear estructura de directorios para el PIBL (`pibl/`)
+- [x] Crear `main.c` con punto de entrada
+- [x] Crear módulos vacíos: `config.c`, `round_robin.c`, `logger.c`, `cache.c`
+- [x] Crear `Makefile` equivalente al del TWS
 
 #### Definición de Hecho
 Proyecto compila limpio. Estructura lista para desarrollo incremental.
 
 ---
 
-### [HU-E4-02] Archivo de configuración PIBL: puerto + lista de backends
+### [HU-E4-02] Archivo de configuración PIBL: puerto + lista de backends ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -750,19 +750,19 @@ Proyecto compila limpio. Estructura lista para desarrollo incremental.
 - [ ] El formato del archivo está documentado en el README con un ejemplo (`config.example`)
 
 #### Tareas
-- [ ] Definir formato del archivo de configuración
-- [ ] Implementar parser del archivo de configuración
-- [ ] Validar los campos obligatorios
-- [ ] Crear `config.example` con documentación de cada campo
+- [x] Definir formato del archivo de configuración
+- [x] Implementar parser del archivo de configuración
+- [x] Validar los campos obligatorios
+- [x] Crear `config.example` con documentación de cada campo
 
 #### Definición de Hecho
 El proxy carga la configuración correctamente. `config.example` documentado en el README.
 
 ---
 
-### [HU-E4-03] Socket servidor PIBL: escucha en 80/8080 + aceptación concurrente
+### [HU-E4-03] Socket servidor PIBL: escucha en 80/8080 + aceptación concurrente ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -782,18 +782,18 @@ El proxy carga la configuración correctamente. `config.example` documentado en 
 - [ ] `SO_REUSEADDR` configurado
 
 #### Tareas
-- [ ] Implementar socket servidor con `socket()`, `bind()`, `listen()`, `accept()`
-- [ ] Bucle principal con creación de hilo por conexión
-- [ ] `DatosConexion` pasado por heap al hilo
+- [x] Implementar socket servidor con `socket()`, `bind()`, `listen()`, `accept()`
+- [x] Bucle principal con creación de hilo por conexión
+- [x] `DatosConexion` pasado por heap al hilo
 
 #### Definición de Hecho
 Proxy acepta 10+ conexiones simultáneas verificado con prueba básica.
 
 ---
 
-### [HU-E4-04] Round Robin thread-safe (sin saltos bajo concurrencia)
+### [HU-E4-04] Round Robin thread-safe (sin saltos bajo concurrencia) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -812,18 +812,18 @@ Proxy acepta 10+ conexiones simultáneas verificado con prueba básica.
 - [ ] Los logs evidencian la distribución correcta entre los 3 backends
 
 #### Tareas
-- [ ] Implementar contador global con mutex `pthread_mutex_t`
-- [ ] Función `seleccionar_backend()` que retorna el siguiente backend según RR
-- [ ] Registrar el backend seleccionado en el log de cada petición
+- [x] Implementar contador global con mutex `pthread_mutex_t`
+- [x] Función `seleccionar_backend()` que retorna el siguiente backend según RR
+- [x] Registrar el backend seleccionado en el log de cada petición
 
 #### Definición de Hecho
 Los logs muestran distribución RR 1/3/1/3/1/3... bajo concurrencia. Sin saltos ni repeticiones incorrectas.
 
 ---
 
-### [HU-E4-05] Interceptación y reenvío de request intacta al backend
+### [HU-E4-05] Interceptación y reenvío de request intacta al backend ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -842,18 +842,18 @@ Los logs muestran distribución RR 1/3/1/3/1/3... bajo concurrencia. Sin saltos 
 - [ ] Errores en la lectura de la petición → responde 400 al cliente
 
 #### Tareas
-- [ ] Leer petición completa del socket del cliente hasta `\r\n\r\n` (+ body si Content-Length presente)
-- [ ] Reenviar la petición al socket del backend seleccionado
-- [ ] Manejar errores de lectura con respuesta 400
+- [x] Leer petición completa del socket del cliente hasta `\r\n\r\n` (+ body si Content-Length presente)
+- [x] Reenviar la petición al socket del backend seleccionado
+- [x] Manejar errores de lectura con respuesta 400
 
 #### Definición de Hecho
 `curl http://IP_PROXY:8080/recurso` retorna el mismo recurso que `curl http://IP_BACKEND:PORT/recurso`.
 
 ---
 
-### [HU-E4-06] Conexión socket cliente a backend + fallback si backend cae
+### [HU-E4-06] Conexión socket cliente a backend + fallback si backend cae ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Alta`  
@@ -873,18 +873,18 @@ Los logs muestran distribución RR 1/3/1/3/1/3... bajo concurrencia. Sin saltos 
 - [ ] Cada intento fallido queda registrado en el log
 
 #### Tareas
-- [ ] Bucle de intento de conexión que recorre la lista de backends
-- [ ] Manejo de `connect()` fallido con registro en log
-- [ ] Respuesta 502 si todos los backends están caídos
+- [x] Bucle de intento de conexión que recorre la lista de backends
+- [x] Manejo de `connect()` fallido con registro en log
+- [x] Respuesta 502 si todos los backends están caídos
 
 #### Definición de Hecho
 Apagando un EC2 backend, el proxy redirige automáticamente al siguiente. Evidencia en el log.
 
 ---
 
-### [HU-E4-07] Relay de respuesta backend → cliente (sin modificar)
+### [HU-E4-07] Relay de respuesta backend → cliente (sin modificar) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -904,18 +904,18 @@ Apagando un EC2 backend, el proxy redirige automáticamente al siguiente. Eviden
 - [ ] Cierra ambos sockets (cliente y backend) al finalizar
 
 #### Tareas
-- [ ] Bucle de lectura del socket del backend y escritura al socket del cliente
-- [ ] Usar buffer de al menos 8 KB para el relay
-- [ ] Cerrar ambos sockets al final
+- [x] Bucle de lectura del socket del backend y escritura al socket del cliente
+- [x] Usar buffer de al menos 8 KB para el relay
+- [x] Cerrar ambos sockets al final
 
 #### Definición de Hecho
 Prueba E2E: cliente → proxy → backend → proxy → cliente funcionando para los 4 casos de prueba.
 
 ---
 
-### [HU-E4-08] Logger del Proxy: consola + archivo, request + response
+### [HU-E4-08] Logger del Proxy: consola + archivo, request + response ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Alta`  
@@ -935,18 +935,18 @@ Prueba E2E: cliente → proxy → backend → proxy → cliente funcionando para
 - [ ] `fflush()` después de cada escritura
 
 #### Tareas
-- [ ] Reusar o adaptar el módulo logger del TWS
-- [ ] Agregar campo de backend elegido al formato de log
-- [ ] Verificar thread-safety bajo concurrencia
+- [x] Reusar o adaptar el módulo logger del TWS
+- [x] Agregar campo de backend elegido al formato de log
+- [x] Verificar thread-safety bajo concurrencia
 
 #### Definición de Hecho
 Log consistente del proxy durante pruebas de estrés. Sin entradas mezcladas.
 
 ---
 
-### [HU-E4-09] Timeout en conexión socket cliente → backend
+### [HU-E4-09] Timeout en conexión socket cliente → backend ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Crítica`  
@@ -968,10 +968,10 @@ Log consistente del proxy durante pruebas de estrés. Sin entradas mezcladas.
 - [ ] Validado apagando un EC2 backend durante una prueba
 
 #### Tareas
-- [ ] Implementar `setsockopt()` con `SO_RCVTIMEO` y `SO_SNDTIMEO` al crear el socket cliente
-- [ ] Manejar `errno == EAGAIN / ETIMEDOUT` en `recv()` / `send()`
-- [ ] Integrar con la lógica de fallback de HU-E4-06
-- [ ] Registrar eventos de timeout en el log
+- [x] Implementar `setsockopt()` con `SO_RCVTIMEO` y `SO_SNDTIMEO` al crear el socket cliente
+- [x] Manejar `errno == EAGAIN / ETIMEDOUT` en `recv()` / `send()`
+- [x] Integrar con la lógica de fallback de HU-E4-06
+- [x] Registrar eventos de timeout en el log
 - [ ] Documentar prueba de backend caído en README
 
 #### Definición de Hecho
@@ -1017,9 +1017,9 @@ Sección "Casos de Prueba" del README incluye evidencia de Round Robin bajo carg
 
 ---
 
-### [HU-E5-00] Módulo de lookup de caché en el flujo del Proxy (decisión HIT/MISS)
+### [HU-E5-00] Módulo de lookup de caché en el flujo del Proxy (decisión HIT/MISS) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @NavarroAbraham  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
@@ -1041,21 +1041,21 @@ Sección "Casos de Prueba" del README incluye evidencia de Round Robin bajo carg
 - [ ] Validado: primera petición MISS, segunda petición (dentro del TTL) HIT
 
 #### Tareas
-- [ ] Definir estructura de metadatos: archivo de recurso + `.meta` con timestamp y TTL
-- [ ] Implementar `cache_lookup(uri)` — verificar existencia + TTL
-- [ ] Implementar `cache_store(uri, data, size)` — guardar recurso + metadata
-- [ ] Integrar `cache_lookup` antes del Round Robin en el flujo del proxy
-- [ ] Integrar `cache_store` después de recibir respuesta del backend
-- [ ] Registrar HIT/MISS en el logger
+- [x] Definir estructura de metadatos: archivo de recurso + `.meta` con timestamp y TTL
+- [x] Implementar `cache_lookup(uri)` — verificar existencia + TTL
+- [x] Implementar `cache_store(uri, data, size)` — guardar recurso + metadata
+- [x] Integrar `cache_lookup` antes del Round Robin en el flujo del proxy
+- [x] Integrar `cache_store` después de recibir respuesta del backend
+- [x] Registrar HIT/MISS en el logger
 
 #### Definición de Hecho
 Log muestra `[CACHE HIT]` en petición repetida dentro del TTL y `[CACHE MISS]` en primera petición. Demostrable en sustentación.
 
 ---
 
-### [HU-E5-01] Caché persistente en disco: almacenar respuestas y servir HIT
+### [HU-E5-01] Caché persistente en disco: almacenar respuestas y servir HIT ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @NavarroAbraham  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
@@ -1075,19 +1075,19 @@ Log muestra `[CACHE HIT]` en petición repetida dentro del TTL y `[CACHE MISS]` 
 - [ ] El caché persiste si el proceso PIBL se reinicia (está en disco, no en RAM)
 
 #### Tareas
-- [ ] Implementar función de generación de nombre de archivo desde URI
-- [ ] Implementar `cache_store()` — escribir respuesta completa en archivo
-- [ ] Implementar lectura desde caché y envío al cliente
-- [ ] Verificar que el directorio de caché existe (crearlo si no)
+- [x] Implementar función de generación de nombre de archivo desde URI
+- [x] Implementar `cache_store()` — escribir respuesta completa en archivo
+- [x] Implementar lectura desde caché y envío al cliente
+- [x] Verificar que el directorio de caché existe (crearlo si no)
 
 #### Definición de Hecho
 HIT/MISS demostrable. Caché persiste tras reinicio del PIBL. Verificado con logs.
 
 ---
 
-### [HU-E5-02] TTL configurable por parámetro (expirar y renovar caché)
+### [HU-E5-02] TTL configurable por parámetro (expirar y renovar caché) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @NavarroAbraham  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
@@ -1107,9 +1107,9 @@ HIT/MISS demostrable. Caché persiste tras reinicio del PIBL. Verificado con log
 - [ ] Expiración verificada con `time(NULL)` contra el timestamp almacenado
 
 #### Tareas
-- [ ] Guardar timestamp de almacenamiento en archivo `.meta`
-- [ ] Implementar comparación `time(NULL) - timestamp > TTL` en `cache_lookup()`
-- [ ] Leer el TTL del archivo de configuración
+- [x] Guardar timestamp de almacenamiento en archivo `.meta`
+- [x] Implementar comparación `time(NULL) - timestamp > TTL` en `cache_lookup()`
+- [x] Leer el TTL del archivo de configuración
 - [ ] Probar con TTL corto (10 segundos) para verificar la expiración
 
 #### Definición de Hecho
