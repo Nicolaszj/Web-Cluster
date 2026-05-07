@@ -1,4 +1,4 @@
-# Makefile para el Telematics Web Server (TWS)
+﻿# Makefile para el Telematics Web Server (TWS)
 #
 # Por que Makefile y no un script de bash?
 # make rastrea dependencias: si solo cambias http_parser.c, solo recompila
@@ -6,9 +6,9 @@
 # En proyectos grandes eso ahorra mucho tiempo.
 #
 # Uso:
-#   make          → compila el servidor
-#   make clean    → borra los objetos y el binario
-#   make run      → compila y ejecuta con valores de prueba
+#   make          â†’ compila el servidor
+#   make clean    â†’ borra los objetos y el binario
+#   make run      â†’ compila y ejecuta con valores de prueba
 
 CC     = gcc
 
