@@ -980,9 +980,9 @@ Con un backend apagado, el proxy redirige al siguiente en ≤ 5 segundos. Log re
 
 ---
 
-### [HU-E4-10] Prueba de estrés del Proxy: evidencia de Round Robin bajo concurrencia
+### [HU-E4-10] Prueba de estrés del Proxy: evidencia de Round Robin bajo concurrencia ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @Elpaipsz  
 **Rama:** `feature/proxy-core`  
 **Prioridad:** `Alta`  
@@ -1021,7 +1021,7 @@ Sección "Casos de Prueba" del README incluye evidencia de Round Robin bajo carg
 ### [HU-E5-00] Módulo de lookup de caché en el flujo del Proxy (decisión HIT/MISS) ✅
 
 **Estado:** ✅ Completada  
-**Responsable:** @NavarroAbraham  
+**Responsable:** @NavarroAbraham (Integrado por @Elpaipsz)  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
 **Dependencias:** HU-E4-05, HU-E5-01, HU-E5-02  
@@ -1057,7 +1057,7 @@ Log muestra `[CACHE HIT]` en petición repetida dentro del TTL y `[CACHE MISS]` 
 ### [HU-E5-01] Caché persistente en disco: almacenar respuestas y servir HIT ✅
 
 **Estado:** ✅ Completada  
-**Responsable:** @NavarroAbraham  
+**Responsable:** @NavarroAbraham (Integrado por @Elpaipsz)  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
 **Dependencias:** HU-E4-07  
@@ -1089,7 +1089,7 @@ HIT/MISS demostrable. Caché persiste tras reinicio del PIBL. Verificado con log
 ### [HU-E5-02] TTL configurable por parámetro (expirar y renovar caché) ✅
 
 **Estado:** ✅ Completada  
-**Responsable:** @NavarroAbraham  
+**Responsable:** @NavarroAbraham (Integrado por @Elpaipsz)  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Crítica`  
 **Dependencias:** HU-E5-01  

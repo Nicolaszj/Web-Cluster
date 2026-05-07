@@ -1,0 +1,8 @@
+# Configuración para el Proxy PIBL
+port=8000
+ttl=60
+
+# Servidores backend (TWS)
+backend=127.0.0.1:9001
+backend=127.0.0.1:9002
+backend=127.0.0.1:9003

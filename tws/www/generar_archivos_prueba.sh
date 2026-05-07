@@ -1,14 +1,8 @@
 #!/bin/bash
-# generar_archivos_prueba.sh
-# Genera los archivos binarios necesarios para los casos de prueba 3 y 4.
-# Ejecutar UNA sola vez en el servidor EC2 antes de iniciar el TWS.
-#
-# Uso: bash generar_archivos_prueba.sh
+# generar_archivos_prueba.sh (Versión Limpia)
 
-set -e
-
-DEST="$(dirname "$0")/files"
-IMG="$(dirname "$0")/img"
+DEST="./tws/www/files"
+IMG="./tws/www/img"
 
 mkdir -p "$DEST" "$IMG"
 
@@ -24,14 +18,10 @@ for i in 1 2 3 4; do
     echo "  [OK] parte${i}.bin (256 KB)"
 done
 
-# Imagen de marcador de posicion para los casos 1 y 2
-# (reemplazar con imagenes reales para la sustentacion)
+# Imagen placeholder básica
 if [ ! -f "$IMG/logo.png" ]; then
-    # Crear un PNG minimo valido de 1x1 pixel rojo (sin herramientas externas)
     printf '\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90wS\xde\x00\x00\x00\x0cIDATx\x9cc\xf8\x0f\x00\x00\x01\x01\x00\x05\x18\xd8N\x00\x00\x00\x00IEND\xaeB`\x82' > "$IMG/logo.png"
-    echo "  [OK] img/logo.png (placeholder 1x1px)"
+    echo "  [OK] img/logo.png (placeholder)"
 fi
 
-echo ""
-echo "Listo. Ahora ejecuta el servidor con:"
-echo "  ./server 8080 access.log ./www"
+echo "Entorno de archivos preparado."
