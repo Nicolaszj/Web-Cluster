@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TWS - Caso 1: Pagina con una imagen</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        img  { max-width: 100%; border: 1px solid #ccc; margin: 10px 0; }
+        nav  { background: #333; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/caso1/index.html">Inicio</a>
+        <a href="/caso2/index.html">Caso 2</a>
+        <a href="/caso3/index.html">Caso 3</a>
+        <a href="/caso4/index.html">Caso 4</a>
+    </nav>
+
+    <h1>Caso de Prueba 1</h1>
+    <p>Esta pagina contiene hipertextos y una sola imagen.</p>
+    <p>
+        El objetivo es verificar que el servidor TWS puede servir una pagina HTML
+        basica con texto y una imagen, con los headers <code>Content-Type</code> y
+        <code>Content-Length</code> correctos para cada recurso.
+    </p>
+
+    <h2>Imagen de prueba</h2>
+    <img src="/img/logo.png" alt="Logo de prueba del TWS">
+
+    <h2>Mas informacion</h2>
+    <p>Visita el <a href="https://datatracker.ietf.org/doc/rfc2616/">RFC 2616</a>
+       para ver la especificacion completa de HTTP/1.1.</p>
+
+    <footer>
+        <hr>
+        <small>TWS - Telematics Web Server | Proyecto Telemática</small>
+    </footer>
+</body>
+</html>

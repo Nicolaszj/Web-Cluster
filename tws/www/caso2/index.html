@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TWS - Caso 2: Multiples imagenes</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; }
+        .galeria { display: flex; flex-wrap: wrap; gap: 10px; }
+        .galeria img { width: 200px; height: 150px; object-fit: cover; border: 1px solid #aaa; }
+        nav  { background: #333; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/caso1/index.html">Caso 1</a>
+        <a href="/caso2/index.html">Inicio</a>
+        <a href="/caso3/index.html">Caso 3</a>
+        <a href="/caso4/index.html">Caso 4</a>
+    </nav>
+
+    <h1>Caso de Prueba 2</h1>
+    <p>Esta pagina carga <strong>multiples imagenes</strong>. Cada imagen genera una
+       peticion GET separada al servidor. Esto permite verificar que el servidor
+       maneja correctamente peticiones concurrentes desde el mismo browser.</p>
+
+    <h2>Galeria</h2>
+    <div class="galeria">
+        <img src="/img/foto1.jpg" alt="Foto 1">
+        <img src="/img/foto2.jpg" alt="Foto 2">
+        <img src="/img/foto3.jpg" alt="Foto 3">
+        <img src="/img/foto4.jpg" alt="Foto 4">
+        <img src="/img/logo.png"  alt="Logo">
+    </div>
+
+    <h2>Sobre este caso</h2>
+    <p>
+        Un browser moderno puede abrir 6 conexiones paralelas al mismo origen.
+        Si abres DevTools → Network, veras las peticiones de las imagenes
+        ejecutandose en paralelo. Cada una de esas conexiones es atendida por
+        un hilo diferente del TWS.
+    </p>
+
+    <footer>
+        <hr>
+        <small>TWS - Telematics Web Server | Proyecto Telemática</small>
+    </footer>
+</body>
+</html>
