@@ -36,13 +36,14 @@ Cada HU está formateada para ser copiada directamente como un **Issue de GitHub
 
 ---
 
-### [HU-E0-01] Estrategia de ramas por módulo y reglas de integración
+### [HU-E0-01] Estrategia de ramas por módulo y reglas de integración ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @NavarroAbraham  
 **Rama:** `main` (docs)  
 **Prioridad:** `Crítica`  
-**Etiquetas:** `metodología` `git` `calidad`
+**Etiquetas:** `metodología` `git` `calidad`  
+**Archivos:** `CONTRIBUTING.md`
 
 ---
 
@@ -51,17 +52,17 @@ Cada HU está formateada para ser copiada directamente como un **Issue de GitHub
 **para** asegurar orden, trazabilidad y evitar integración de código que no compila o no pasa pruebas.
 
 #### Criterios de Aceptación
-- [ ] Existe un documento `CONTRIBUTING.md` en la raíz del repositorio con:
-  - [ ] Listado de ramas: `feature/parser-http` (Rol 1), `feature/proxy-core` (Rol 2), `feature/aws-cache` (Rol 3)
-  - [ ] Reglas de merge: solo a `main` cuando el código compile y pase pruebas
-  - [ ] Prohibición explícita de compartir archivos `.c`/`.rs` por canales externos (WhatsApp, email, etc.)
-  - [ ] Checklist mínimo de PR definido
+- [x] Existe un documento `CONTRIBUTING.md` en la raíz del repositorio con:
+  - [x] Listado de ramas: `feature/parser-http` (Rol 1), `feature/proxy-core` (Rol 2), `feature/aws-cache` (Rol 3)
+  - [x] Reglas de merge: solo a `main` cuando el código compile y pase pruebas
+  - [x] Prohibición explícita de compartir archivos `.c`/`.rs` por canales externos (WhatsApp, email, etc.)
+  - [x] Checklist mínimo de PR definido
 - [ ] (Recomendado) Protección de rama `main` habilitada en GitHub
 
 #### Tareas
-- [ ] Crear `CONTRIBUTING.md` en la raíz del repositorio
-- [ ] Definir y documentar el checklist mínimo para PRs
-- [ ] Comunicar la política al equipo
+- [x] Crear `CONTRIBUTING.md` en la raíz del repositorio
+- [x] Definir y documentar el checklist mínimo para PRs
+- [x] Comunicar la política al equipo
 
 #### Definición de Hecho
 Documento `CONTRIBUTING.md` publicado en `main` y todo el equipo lo conoce y aplica.
@@ -99,13 +100,14 @@ Tablero activo, con todas las HUs como tarjetas, responsables asignados y siendo
 
 ---
 
-### [HU-E0-03] Restricción de implementación desde cero (sin librerías externas)
+### [HU-E0-03] Restricción de implementación desde cero (sin librerías externas) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @NavarroAbraham  
 **Rama:** `main` (docs)  
 **Prioridad:** `Crítica`  
-**Etiquetas:** `metodología` `calidad` `restricciones`
+**Etiquetas:** `metodología` `calidad` `restricciones`  
+**Archivos:** `CONTRIBUTING.md` (sección 2 + checklist PR)
 
 ---
 
@@ -114,19 +116,19 @@ Tablero activo, con todas las HUs como tarjetas, responsables asignados y siendo
 **para** cumplir con la exigencia académica de no usar librerías externas, frameworks ni código generado por IA.
 
 #### Criterios de Aceptación
-- [ ] Existe una sección "Restricciones de implementación" en `CONTRIBUTING.md` que prohíbe:
-  - [ ] Librerías HTTP externas (libcurl, mongoose, etc.)
-  - [ ] Parsers externos de cualquier tipo
-  - [ ] Frameworks web de cualquier índole
-  - [ ] Código generado o copiado de herramientas de IA
-- [ ] El código del proyecto usa únicamente: `stdlib`, `string.h`, `stdio.h`, `pthread.h`, `sys/socket.h` y syscalls POSIX estándar
-- [ ] El checklist de PR incluye el ítem: "¿El código usa solo stdlib + POSIX? (sin librerías externas)"
-- [ ] Cualquier referencia externa está citada como RFC/documentación, nunca como código
+- [x] Existe una sección "Restricciones de implementación" en `CONTRIBUTING.md` que prohíbe:
+  - [x] Librerías HTTP externas (libcurl, mongoose, etc.)
+  - [x] Parsers externos de cualquier tipo
+  - [x] Frameworks web de cualquier índole
+  - [x] Código generado o copiado de herramientas de IA
+- [x] El código del proyecto usa únicamente: `stdlib`, `string.h`, `stdio.h`, `pthread.h`, `sys/socket.h` y syscalls POSIX estándar
+- [x] El checklist de PR incluye el ítem: "¿El código usa solo stdlib + POSIX? (sin librerías externas)"
+- [x] Cualquier referencia externa está citada como RFC/documentación, nunca como código
 
 #### Tareas
-- [ ] Agregar sección "Restricciones de implementación" en `CONTRIBUTING.md`
-- [ ] Actualizar checklist de PR con verificación de esta restricción
-- [ ] Comunicar al equipo en la primera reunión de trabajo
+- [x] Agregar sección "Restricciones de implementación" en `CONTRIBUTING.md`
+- [x] Actualizar checklist de PR con verificación de esta restricción
+- [x] Comunicar al equipo en la primera reunión de trabajo
 
 #### Definición de Hecho
 Restricción documentada, conocida por todos los miembros y verificada en cada PR.
@@ -1118,13 +1120,14 @@ Recurso expirado genera MISS y se renueva en disco. Verificado con logs y TTL co
 
 ---
 
-### [HU-E5-03] Documentar formato del archivo de configuración (incluye TTL)
+### [HU-E5-03] Documentar formato del archivo de configuración (incluye TTL) ✅
 
-**Estado:** ⬜ Pendiente  
+**Estado:** ✅ Completada  
 **Responsable:** @NavarroAbraham  
 **Rama:** `feature/aws-cache`  
 **Prioridad:** `Alta`  
-**Etiquetas:** `config` `docs`
+**Etiquetas:** `config` `docs`  
+**Archivos:** `pibl/config.example`
 
 ---
 
@@ -1133,14 +1136,14 @@ Recurso expirado genera MISS y se renueva en disco. Verificado con logs y TTL co
 **para** permitir un despliegue reproducible sin necesidad de recompilar.
 
 #### Criterios de Aceptación
-- [ ] El archivo `config.example` está en la raíz del PIBL con todos los campos documentados
-- [ ] Incluye: puerto de escucha, lista de backends (IP:puerto), TTL del caché en segundos
+- [x] El archivo `config.example` está en la raíz del PIBL con todos los campos documentados
+- [x] Incluye: puerto de escucha, lista de backends (IP:puerto), TTL del caché en segundos
 - [ ] El README incluye la sección "Archivo de Configuración" con ejemplo completo
 
 #### Tareas
-- [ ] Definir formato definitivo del archivo de configuración
-- [ ] Crear `config.example` con comentarios explicativos por campo
-- [ ] Documentar en README con ejemplo de uso
+- [x] Definir formato definitivo del archivo de configuración
+- [x] Crear `config.example` con comentarios explicativos por campo
+- [ ] Documentar en README con ejemplo de uso (@NavarroAbraham)
 
 #### Definición de Hecho
 `config.example` publicado y documentado en README.
