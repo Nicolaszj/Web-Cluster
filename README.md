@@ -180,5 +180,95 @@ Web-Cluster/
 │   └── Makefile
 ├── BACKLOG_COMPLETO.md
 ├── CONTRIBUTING.md
+├── capturar_evidencia_aws.sh   # Script de evidencia E2E en AWS
 └── README.md
 ```
+
+---
+
+## Despliegue en AWS (HU-E6-01 / E6-02 / E6-03)
+
+### Arquitectura
+
+```
+Internet → [EC2 Proxy :8000] → Round Robin → [EC2 TWS-1 :9001]
+                                           → [EC2 TWS-2 :9002]
+                                           → [EC2 TWS-3 :9003]
+```
+
+### 1. Preparar cada instancia EC2 (repetir en las 4)
+
+```bash
+sudo apt-get update && sudo apt-get install -y gcc make git   # Ubuntu
+# o: sudo yum install -y gcc make git                         # Amazon Linux
+
+git clone https://github.com/Nicolaszj/Web-Cluster.git
+cd Web-Cluster
+```
+
+### 2. Compilar TWS (en las 3 instancias backend)
+
+```bash
+cd tws
+make
+bash www/generar_archivos_prueba.sh   # genera los .bin de ~1 MB
+```
+
+### 3. Levantar los 3 backends TWS
+
+```bash
+# En EC2 TWS-1:
+./server 9001 tws_9001.log ./www
+
+# En EC2 TWS-2:
+./server 9002 tws_9002.log ./www
+
+# En EC2 TWS-3:
+./server 9003 tws_9003.log ./www
+```
+
+### 4. Configurar y levantar el proxy PIBL (en EC2 Proxy)
+
+Editar `pibl/config.txt` con las IPs privadas reales de los TWS:
+
+```
+port=8000
+ttl=60
+backend=<IP_PRIVADA_TWS1>:9001
+backend=<IP_PRIVADA_TWS2>:9002
+backend=<IP_PRIVADA_TWS3>:9003
+```
+
+```bash
+cd pibl
+make
+./pibl_proxy config.txt
+```
+
+### 5. Verificar funcionamiento E2E
+
+```bash
+# Desde cualquier máquina con la IP pública del proxy:
+curl http://<IP_PUBLICA_PROXY>:8000/caso1/index.html   # debe responder 200
+curl http://<IP_PUBLICA_PROXY>:8000/caso1/index.html   # segunda vez: CACHE HIT
+```
+
+### 6. Capturar evidencia automática (HU-E7-02)
+
+Ejecutar desde el EC2 del proxy (con el cluster corriendo):
+
+```bash
+bash capturar_evidencia_aws.sh <IP_PUBLICA_PROXY> 8000
+git add evidencia_aws.txt
+git commit -m "test(aws): evidencia pruebas E2E en AWS"
+git push origin main
+```
+
+### Security Groups requeridos
+
+| Instancia | Puerto | Origen |
+|-----------|--------|--------|
+| EC2 Proxy | 8000 (TCP) | 0.0.0.0/0 (internet) |
+| EC2 Proxy | 22 (SSH) | tu IP |
+| EC2 TWS-1/2/3 | 9001-9003 (TCP) | IP privada del Proxy |
+| EC2 TWS-1/2/3 | 22 (SSH) | tu IP |
