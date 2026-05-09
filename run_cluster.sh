@@ -3,7 +3,7 @@
 # Script para lanzar el Cluster de Telematica (Proxy + 3 Backends)
 # Proyecto: PIBL-WS
 
-echo "=== Iniciando compilación ==="
+echo "=== Iniciando compilacion ==="
 cd tws && make clean && make
 cd ../pibl && make clean && make
 cd ..
@@ -25,4 +25,4 @@ sleep 1
 
 echo "=== Lanzando Proxy PIBL (Puerto 8000) ==="
 cd pibl
-./pibl_proxy
+./pibl_proxy config.txt
