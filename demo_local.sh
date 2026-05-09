@@ -146,7 +146,7 @@ run_test() {
 run_test "GET / -> 200"           "200" "curl -s -o /dev/null -w '%{http_code}' http://localhost:9001/"
 run_test "GET logo.png (image/png)" "200" "curl -s -o /dev/null -w '%{http_code}' http://localhost:9001/img/logo.png"
 run_test "GET /no-existe -> 404"   "404" "curl -s -o /dev/null -w '%{http_code}' http://localhost:9001/no-existe-este-archivo"
-run_test "Path traversal -> 400"   "400" "curl -s -o /dev/null -w '%{http_code}' 'http://localhost:9001/../etc/passwd'"
+run_test "Path traversal -> 400"   "400" "curl --path-as-is -s -o /dev/null -w '%{http_code}' 'http://localhost:9001/../etc/passwd'"
 run_test "Caso 1 -> 200"          "200" "curl -s -o /dev/null -w '%{http_code}' http://localhost:9001/caso1/index.html"
 run_test "Caso 2 -> 200"          "200" "curl -s -o /dev/null -w '%{http_code}' http://localhost:9001/caso2/index.html"
 run_test "Caso 3 -> 200"          "200" "curl -s -o /dev/null -w '%{http_code}' http://localhost:9001/caso3/index.html"
