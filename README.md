@@ -11,7 +11,7 @@ Proyecto académico: Proxy Inverso + Balanceador de Carga + Web Server.
 ---
 
 ## Video
-https://youtu.be/Hl-8GrditrI
+[https://youtu.be/G3UxJI-tmr8](https://youtu.be/G3UxJI-tmr8)
 
 ## TWS — Telematics Web Server
 
