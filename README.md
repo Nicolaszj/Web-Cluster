@@ -10,6 +10,9 @@ Proyecto académico: Proxy Inverso + Balanceador de Carga + Web Server.
 
 ---
 
+## Video
+https://youtu.be/Hl-8GrditrI
+
 ## TWS — Telematics Web Server
 
 Servidor HTTP/1.1 implementado en C con POSIX sockets. Soporta GET, HEAD y POST con concurrencia por hilos (`pthread`).
